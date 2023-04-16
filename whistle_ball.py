@@ -154,7 +154,7 @@ def graph(wb):
         ffty2 = ffty[len(ffty) // 2 : :] + 2
         ffty2 = ffty2[::-1]
         ffty = ffty1 + ffty2
-        ffty = scipy.log(ffty) - 2
+        ffty = numpy.lib.scimath.log(ffty) - 2
         ffty_abs = []
         for f in ffty:
             ffty_abs.append(abs(f))
@@ -166,8 +166,8 @@ def graph(wb):
         max_median_spectrum_diff = (
             max(whistle_spectrum) / whistle_spectrum[median_index]
         )
-        max_spectrum_diff = max(ffty_abs[250:]) // scipy.mean(ffty_abs[250:])
-        spectrum_var = scipy.var(ffty_abs[250:])
+        max_spectrum_diff = max(ffty_abs[250:]) // numpy.mean(ffty_abs[250:])
+        spectrum_var = numpy.var(ffty_abs[250:])
         max_spectrum_diff_index = ffty_abs[250:].index(max(ffty_abs[250:]))
         pitch_threshold = 6.0
         if max_median_spectrum_diff > pitch_threshold:
