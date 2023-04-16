@@ -1,0 +1,4 @@
+pygame
+pyaudio
+scipy
+numpy
